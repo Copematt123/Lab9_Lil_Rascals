@@ -1,6 +1,6 @@
 ---
 title: "Lab9_Lil_Rascals"
-author: "Matthew Copeland"
+author: "Lil Rascals"
 date: "March 12, 2019"
 output: html_document
 ---
@@ -12,6 +12,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(tidyverse)
 library(dplyr)
+library(lubridate)
+library(OpenStreetMap)
+library(stringr)
+
+workout <- read_csv("Nice_ride_trip_history_2017_season.csv")
+workout <- read_csv("Nice_Ride_2017_Station_Locations.csv")
+
 ```
 
 
