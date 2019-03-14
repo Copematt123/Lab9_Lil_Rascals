@@ -8,16 +8,22 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
+## Individual Kelsey McKenna
+Question: 
+1. 
 ```{r}
 library(tidyverse)
 library(dplyr)
 library(lubridate)
 library(OpenStreetMap)
 library(stringr)
+stations <- read_csv("Nice_Ride_2017_Station_Locations.csv")
 
-workout <- read_csv("Nice_ride_trip_history_2017_season.csv")
-workout <- read_csv("Nice_Ride_2017_Station_Locations.csv")
+seasons <- read_csv("Nice_ride_trip_history_2017_season.csv")
+
+stations <- read_csv("Nice_Ride_2017_Station_Locations.csv")
+setnames(data, old="old_name", new="new_name"))
+inner_join(seasons, stations)
 
 ```
 
