@@ -50,7 +50,30 @@ Shreeya
 James
 
 
-Matthew
+##Matthew's Findings
+#Question: Where does the majority of revenue come from, members or casual riders?
+```{r}
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+Locations <- read.csv("Nice_Ride_2017_Station_Locations.csv")
+History <- read.csv("Nice_ride_trip_history_2017_season.csv")
+#times members use the bikes
+MR <- History %>% filter(Account.type == "Member") %>% select(Total.duration..Seconds.) %>% arrange(desc(Total.duration..Seconds.))
+MS <- colSums(MR)
+#times casuals use the bikes
+CR <- History %>% filter(Account.type == "Casual") %>% select(Total.duration..Seconds.) %>% arrange(desc(Total.duration..Seconds.))
+A <- History %>% select(Account.type,Total.duration..Seconds.)
+ggplot(data = A)+
+  geom_col(aes(x = Account.type, y = Total.duration..Seconds.,fill = Account.type),na.rm = TRUE)+
+  ggtitle('Total Time in Seconds Used by Members vs Casuals')+
+  ylab('Total Ride in Seconds')+
+  xlab('Account Type')
+```
+#Findings: Looking at the graph the y axis is the total amount of seconds each type of rider rides when renting and the x axis shows the typ of riders. The "Inconnu" is just the outlier and honestly I can't get rid of it. Looking throughout the graph you see that Casual riders use the bikes way more than the Members which mean that Casual riders create more revenue since they use the bikes longer than Members. 
+
+
 ### Findings
 Kelsey McKenna
 I found that the stations with the most docks were located centrally which you can see by the red docks. It may indicate this is a busy part of town in this area or it is less common to drive in this area since they have bike docks. This makes sense, because most likely more people live in the center of all the stations. Also, there were a couple with a lot of docks South West. The average number of docs I found to be 19 and took less than the top quartile of the data and plotted it. It was interesting that there was one very North of all the other stations with lots of Docks. Perhaps these people ride bikes up there more even though it isn't a popular station area. 
@@ -75,7 +98,7 @@ James
 
 
 Matthew
-
+I looked took out the columns of the Total seconds and Account type then by adding it to the graph it automatically added the seconds and grouped by Member or Casual. 
 
 
 
