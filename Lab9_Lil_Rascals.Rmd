@@ -53,7 +53,7 @@ James
 Matthew
 ### Findings
 Kelsey McKenna
-I found that the stations with the most docks were located centrally which you can see by the red docks. It may indicate this is a busy part of town in this area or it is less common to drive in this area since they have bike docks. This makes sense, because most likely more people live in the center of all the stations. Also, there were a couple with a lot of docks South West. The average number of docs I found to be 19 and took less than the top quartile of the data and plotted it. 
+I found that the stations with the most docks were located centrally which you can see by the red docks. It may indicate this is a busy part of town in this area or it is less common to drive in this area since they have bike docks. This makes sense, because most likely more people live in the center of all the stations. Also, there were a couple with a lot of docks South West. The average number of docs I found to be 19 and took less than the top quartile of the data and plotted it. It was interesting that there was one very North of all the other stations with lots of Docks. Perhaps these people ride bikes up there more even though it isn't a popular station area. 
 
 Shreeya
 
