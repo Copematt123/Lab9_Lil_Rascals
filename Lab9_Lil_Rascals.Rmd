@@ -8,9 +8,9 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-## Individual Kelsey McKenna
+### Individual Kelsey McKenna
 Question: 
-1. 
+1. I wanted to see how northern places compared 
 ```{r}
 library(tidyverse)
 library(dplyr)
@@ -20,10 +20,16 @@ library(stringr)
 stations <- read_csv("Nice_Ride_2017_Station_Locations.csv")
 
 seasons <- read_csv("Nice_ride_trip_history_2017_season.csv")
+colnames(seasons)[colnames(seasons)=="Start station number"] <- "Number"
 
-stations <- read_csv("Nice_Ride_2017_Station_Locations.csv")
-setnames(data, old="old_name", new="new_name"))
-inner_join(seasons, stations)
+newstations <- inner_join(seasons, stations, by="Number") 
+ggplot(data = newstations) + # Plots a map 
+  geom_point( aes(x=Longitude, y=Latitude, fill = "Total duration"), 
+               size = 1) +
+  labs(x='Longitude', y='Latitude') +
+  ggtitle('Locations of NiceRide Stations by number of docks')
+ggplot(data= newstations)+
+  geom_jitter(aes(x="Latitude", y="Total Docks"))
 
 ```
 
