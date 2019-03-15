@@ -7,15 +7,21 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+library(stringr)
 ```
-### Individual Kelsey McKenna
+### Individual 
+Kelsey McKenna
 Question: 
-1. I wanted to see how northern places compared 
+  Where are the places with the most docks located?
+
+
 ```{r}
 library(tidyverse)
 library(dplyr)
 library(lubridate)
-library(OpenStreetMap)
 library(stringr)
 stations <- read_csv("Nice_Ride_2017_Station_Locations.csv")
 
@@ -23,18 +29,52 @@ seasons <- read_csv("Nice_ride_trip_history_2017_season.csv")
 colnames(seasons)[colnames(seasons)=="Start station number"] <- "Number"
 
 newstations <- inner_join(seasons, stations, by="Number") 
+
+newstations1 <- newstations %>% filter( newstations$"Total docks" >23)
 ggplot(data = newstations) + # Plots a map 
-  geom_point( aes(x=Longitude, y=Latitude, fill = "Total duration"), 
+  geom_point( aes(x=Longitude, y=Latitude), color = "blue",
                size = 1) +
+  geom_point(data = newstations1, aes(x=Longitude, y=Latitude), color = "red",
+               size = 1)+
   labs(x='Longitude', y='Latitude') +
-  ggtitle('Locations of NiceRide Stations by number of docks')
-ggplot(data= newstations)+
-  geom_jitter(aes(x="Latitude", y="Total Docks"))
+  ggtitle('Locations of NiceRide Stations by Number of Docks')
+
+
+summary(newstations$"Total docks")
+
 
 ```
+Shreeya 
+
+
+James
+
+
+Matthew
+### Findings
+Kelsey McKenna
+I found that the stations with the most docks were located centrally which you can see by the red docks. It may indicate this is a busy part of town in this area or it is less common to drive in this area since they have bike docks. This makes sense, because most likely more people live in the center of all the stations. Also, there were a couple with a lot of docks South West. The average number of docs I found to be 19 and took less than the top quartile of the data and plotted it. 
+
+Shreeya
+
+James
+
+Matthew
+
+### Most Interesting Plot
+
+### Summary
+Kelsey McKenna
+I joined the two data sets by the number of the station it came from and the station in the second data set. I then filtered out the highest total number of docks. I plotted the plot of all of the stations versus the stations with the most docks of them all together using ggplot and filtering the highest numbers of docks. 
+
+Shreeya 
+
+
+James 
 
 
 
+Matthew
 
 
 
