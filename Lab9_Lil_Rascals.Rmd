@@ -12,8 +12,7 @@ library(dplyr)
 library(lubridate)
 library(stringr)
 ```
-### Individual 
-Kelsey McKenna
+### Individual Kelsey McKenna
 Question: 
   Where are the places with the most docks located?
 
@@ -50,8 +49,8 @@ Shreeya
 James
 
 
-##Matthew's Findings
-#Question: Where does the majority of revenue come from, members or casual riders?
+###Matthew's Individual
+Question: Where does the majority of revenue come from, members or casual riders?
 ```{r}
 library(tidyverse)
 library(dplyr)
@@ -71,21 +70,21 @@ ggplot(data = A)+
   ylab('Total Ride in Seconds')+
   xlab('Account Type')
 ```
-#Findings: Looking at the graph the y axis is the total amount of seconds each type of rider rides when renting and the x axis shows the typ of riders. The "Inconnu" is just the outlier and honestly I can't get rid of it. Looking throughout the graph you see that Casual riders use the bikes way more than the Members which mean that Casual riders create more revenue since they use the bikes longer than Members. 
+#Findings
 
 
-### Findings
 Kelsey McKenna
 I found that the stations with the most docks were located centrally which you can see by the red docks. It may indicate this is a busy part of town in this area or it is less common to drive in this area since they have bike docks. This makes sense, because most likely more people live in the center of all the stations. Also, there were a couple with a lot of docks South West. The average number of docs I found to be 19 and took less than the top quartile of the data and plotted it. It was interesting that there was one very North of all the other stations with lots of Docks. Perhaps these people ride bikes up there more even though it isn't a popular station area. 
+
+Matthew
+Looking at the graph the y axis is the total amount of seconds each type of rider rides when renting and the x axis shows the typ of riders. The "Inconnu" is just the outlier and honestly I can't get rid of it. Looking throughout the graph you see that Casual riders use the bikes way more than the Members which mean that Casual riders create more revenue since they use the bikes longer than Members. 
 
 Shreeya
 
 James
 
-Matthew
-
 ### Most Interesting Plot
-
+Matthew's plot was the most interesting, because he found that casual members use the bikes more which makes sense as they could be generally in a lower income bracket. However, it could be seen as weird that people that ride them more don't use the bikes as much because they will spend more and more money. Therefore, this was an interesting find. 
 ### Summary
 Kelsey McKenna
 I joined the two data sets by the number of the station it came from and the station in the second data set. I then filtered out the highest total number of docks. I plotted the plot of all of the stations versus the stations with the most docks of them all together using ggplot and filtering the highest numbers of docks. 
