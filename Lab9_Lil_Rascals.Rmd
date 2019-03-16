@@ -43,7 +43,28 @@ summary(newstations$"Total docks")
 
 
 ```
-Shreeya 
+###Shreeya's Individual
+Question: Are there consumers that check out bikes long term? Where do they check those bikes out from?
+```{r}
+library(tidyverse)
+library(lubridate)
+library(DALEX2)
+
+station <- read.csv("Nice_Ride_2017_Station_Locations.csv")
+season <- read.csv("Nice_Ride_trip_history_2017_season.csv")
+starting_season <- select(season, contains("Start.station"), contains("Total.duration..Seconds.")) %>% filter(Total.duration..Seconds.>= 3025053)
+starting_season_factored <-factor(starting_season, levels = unique(starting_season))
+starting_season_count<- count(starting_season, Start.station== "McNamara Center")
+
+
+ggplot(data = starting_season, aes(x = Start.station.number , y = Total.duration..Seconds.)) +
+  geom_col(fill = "yellow") + 
+  ggtitle('Count of stations that had a bike checked out for at least a month')+
+  xlab("Bike Station Number")+
+  ylab("Total Duration in Seconds")
+
+```
+
 
 
 James
@@ -80,6 +101,7 @@ Matthew
 Looking at the graph the y axis is the total amount of seconds each type of rider rides when renting and the x axis shows the typ of riders. The "Inconnu" is just the outlier and honestly I can't get rid of it. Looking throughout the graph you see that Casual riders use the bikes way more than the Members which mean that Casual riders create more revenue since they use the bikes longer than Members. 
 
 Shreeya
+There were some consumers that checked out a bike for at least a month. These bikes were checked out from 13 different stations. The shortest checked out bike was for 35 days and the highest was for 4.3 months from the Rice Street & University Ave W station. This is interesting to me because the cost of checking out a bike for that long is significantly more expensive than just buying a bike.
 
 James
 
@@ -90,7 +112,7 @@ Kelsey McKenna
 I joined the two data sets by the number of the station it came from and the station in the second data set. I then filtered out the highest total number of docks. I plotted the plot of all of the stations versus the stations with the most docks of them all together using ggplot and filtering the highest numbers of docks. 
 
 Shreeya 
-
+I filtered the season data table down to the starting station names, numbers and the duration of the bike being checked out for each station. I then set up factors and found counts for a station as an exploratory analysis path. I finally found that some bikes were checked out for significant times and so I filtered the table of only starting station names, numbers and durations to those with a duration of at least 35 days. Then, I used geom_col to plot the bike stations against the durations of the bike being checked out when those durations are greater than a month. Finally, for aesthetics I changed the column colors and added a plot title and axis titles. 
 
 James 
 
